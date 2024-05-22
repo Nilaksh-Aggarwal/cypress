@@ -8,7 +8,7 @@ export const FormSchema = z.object({
   password: z.string().describe('Password').min(1, 'Password is required'),
 });
 
-/* export const CreateWorkspaceFormSchema = z.object({
+export const CreateWorkspaceFormSchema = z.object({
   workspaceName: z
     .string()
     .describe('Workspace Name')
@@ -16,7 +16,7 @@ export const FormSchema = z.object({
   logo: z.any(),
 });
 
-export const UploadBannerFormSchema = z.object({
+/* export const UploadBannerFormSchema = z.object({
   banner: z.string().describe('Banner Image'),
 });
 
