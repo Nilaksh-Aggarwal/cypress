@@ -22,6 +22,48 @@
       "when": 1715928882406,
       "tag": "0002_special_toro",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1716383534623,
+      "tag": "0003_gray_meteorite",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1716454599964,
+      "tag": "0004_daily_nuke",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1716454719730,
+      "tag": "0005_flippant_hardball",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1716454758862,
+      "tag": "0006_faithful_sharon_ventura",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1716468233724,
+      "tag": "0007_lush_blonde_phantom",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1716469206855,
+      "tag": "0008_keen_moira_mactaggert",
+      "breakpoints": true
     }
   ]
 }

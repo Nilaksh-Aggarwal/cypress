@@ -111,7 +111,7 @@ const appReducer = (
         ...state,
         workspaces: action.payload.workspaces,
       };
-    /* case 'SET_FOLDERS':
+    case 'SET_FOLDERS':
       return {
         ...state,
         workspaces: state.workspaces.map((workspace) => {
@@ -120,15 +120,16 @@ const appReducer = (
               ...workspace,
               folders: action.payload.folders.sort(
                 (a, b) =>
-                  new Date(a.createdAt).getTime() -
-                  new Date(b.createdAt).getTime()
+                  new Date(a.createdAt?a.createdAt:'').getTime() -
+                  new Date(b.createdAt?b.createdAt:'').getTime()
+
               ),
             };
           }
           return workspace;
         }),
-      }; */
-    /* case 'ADD_FOLDER':
+      };
+    case 'ADD_FOLDER':
       return {
         ...state,
         workspaces: state.workspaces.map((workspace) => {
@@ -136,12 +137,13 @@ const appReducer = (
             ...workspace,
             folders: [...workspace.folders, action.payload.folder].sort(
               (a, b) =>
-                new Date(a.createdAt).getTime() -
-                new Date(b.createdAt).getTime()
+                new Date(a.createdAt? a.createdAt:'').getTime() -
+                new Date(b.createdAt?b.createdAt:'').getTime()
+
             ),
           };
         }),
-      }; */
+      };
     case 'UPDATE_FOLDER':
       return {
         ...state,
@@ -196,7 +198,7 @@ const appReducer = (
           return workspace;
         }),
       };
-    /* case 'ADD_FILE':
+    case 'ADD_FILE':
       return {
         ...state,
         workspaces: state.workspaces.map((workspace) => {
@@ -209,8 +211,8 @@ const appReducer = (
                     ...folder,
                     files: [...folder.files, action.payload.file].sort(
                       (a, b) =>
-                        new Date(a.createdAt).getTime() -
-                        new Date(b.createdAt).getTime()
+                        new Date(a.createdAt?a.createdAt:'').getTime() -
+                        new Date(b.createdAt?b.createdAt:'').getTime()
                     ),
                   };
                 }
@@ -220,7 +222,7 @@ const appReducer = (
           }
           return workspace;
         }),
-      }; */
+      };
     case 'DELETE_FILE':
       return {
         ...state,
@@ -321,7 +323,7 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
       }
   }, [pathname]);
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (!folderId || !workspaceId) return;
     const fetchFiles = async () => {
       const { error: filesError, data } = await getFiles(folderId);
@@ -329,13 +331,14 @@ const AppStateProvider: React.FC<AppStateProviderProps> = ({ children }) => {
         console.log(filesError);
       }
       if (!data) return;
+      if(data===null) return;
       dispatch({
         type: 'SET_FILES',
         payload: { workspaceId, files: data, folderId },
       });
     };
     fetchFiles();
-  }, [folderId, workspaceId]); */
+  }, [folderId, workspaceId]);
 
   useEffect(() => {
     console.log('App State Changed', state);
